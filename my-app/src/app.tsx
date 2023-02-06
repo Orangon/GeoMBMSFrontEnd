@@ -18,7 +18,7 @@ export const initialStateConfig = {
 import type { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {
-  timeout: 10000,
+  timeout: 100000,
 
 };
 /**
