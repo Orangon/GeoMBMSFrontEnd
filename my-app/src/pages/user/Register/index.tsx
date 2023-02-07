@@ -1,18 +1,11 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
-  ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
 import { Alert, message, Tabs } from 'antd';
@@ -33,7 +26,7 @@ const LoginMessage: React.FC<{
   />
 );
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
@@ -101,7 +94,7 @@ const Login: React.FC = () => {
           <Tabs activeKey={type} onChange={setType}>
             <Tabs.TabPane
               key="account"
-              tab='账号密码登录'
+              tab='注册'
             />
           </Tabs>
 
@@ -181,4 +174,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;
