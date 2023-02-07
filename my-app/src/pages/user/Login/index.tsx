@@ -6,12 +6,14 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
+  ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Alert, message, Tabs } from 'antd';
+import { Alert, message, Space, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { FormattedMessage, history, SelectLang, useIntl, useModel } from 'umi';
+import { FormattedMessage, history, Link, SelectLang, useIntl, useModel } from 'umi';
 import styles from './index.less';
+import { Divider } from 'antd';
 
 const LoginMessage: React.FC<{
   content: string;
@@ -111,7 +113,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='账号: wucl or wuclAdmin'
+                placeholder='请输入您的账号'
                 rules={[
                   {
                     required: true,
@@ -151,7 +153,7 @@ const Login: React.FC = () => {
             </>
           )}
 
-          {/* <div
+          <div
             style={{
               marginBottom: 24,
             }}
@@ -164,9 +166,11 @@ const Login: React.FC = () => {
                 float: 'right',
               }}
             >
+              <Link to="/user/register">新用户注册 </Link>
+              <Divider type="vertical" />
               <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
             </a>
-          </div> */}
+          </div>
         </LoginForm>
       </div>
       <Footer />

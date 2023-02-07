@@ -6,11 +6,12 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
+  ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { message, Tabs } from 'antd';
+import { Divider, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { FormattedMessage, history, SelectLang } from 'umi';
+import { FormattedMessage, history, Link, SelectLang } from 'umi';
 import styles from './index.less';
 
 
@@ -79,7 +80,7 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='账号: wucl or wuclAdmin'
+                placeholder='请输入您的账号'
                 rules={[
                   {
                     required: true,
@@ -143,6 +144,14 @@ const Register: React.FC = () => {
 
             </>
           )}
+          <div
+            style={{
+              marginBottom: 24,
+              float:'right'
+            }}
+          >
+            <Link to="/user/login">已有账号？去登录</Link>
+          </div>
         </LoginForm>
       </div>
       <Footer />
