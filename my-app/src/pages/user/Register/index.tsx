@@ -6,10 +6,9 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Divider, message, Tabs } from 'antd';
+import { message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { FormattedMessage, history, Link, SelectLang } from 'umi';
 import styles from './index.less';
@@ -68,7 +67,7 @@ const Register: React.FC = () => {
           <Tabs activeKey={type} onChange={setType}>
             <Tabs.TabPane
               key="account"
-              tab='账号密码注册'
+              tab='注册'
             />
           </Tabs>
 

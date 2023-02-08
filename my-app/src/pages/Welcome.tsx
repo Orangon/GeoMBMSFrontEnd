@@ -3,8 +3,6 @@ import { Alert, Card, Typography } from 'antd';
 import React from 'react';
 import { FormattedMessage, useIntl } from 'umi';
 import styles from './Welcome.less';
-import Button01 from './Button01';
-import ButtonBasic from './ButtonBasic';
 
 const CodePreview: React.FC = ({ children }) => (
   <pre className={styles.pre}>
@@ -18,8 +16,6 @@ const Welcome: React.FC = () => {
   const intl = useIntl();
   return (
     <PageContainer>
-      <ButtonBasic />
-      <Button01 />
       <Card>
         <Alert
           message={intl.formatMessage({

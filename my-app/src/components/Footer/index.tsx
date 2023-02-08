@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'onesis',
+          key: 'OneSIS',
           title: '地理空间智能系统门户',
           href: 'https://www.onesis.cn/introduce',
           blankTarget: true,
         },
         {
-          key: 'github',
+          key: 'GitHub',
           title: <GithubOutlined />,
           href: 'https://github.com/lreis2415',
           blankTarget: true,
