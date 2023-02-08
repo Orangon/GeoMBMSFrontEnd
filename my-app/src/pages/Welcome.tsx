@@ -17,19 +17,7 @@ const Welcome: React.FC = () => {
   return (
     <PageContainer>
       <Card>
-        <Alert
-          message={intl.formatMessage({
-            id: 'pages.welcome.alertMessage',
-            defaultMessage: 'Faster and stronger heavy-duty components have been released.',
-          })}
-          type="success"
-          showIcon
-          banner
-          style={{
-            margin: -12,
-            marginBottom: 24,
-          }}
-        />
+
         <Typography.Text strong>
           <a
             href="https://procomponents.ant.design/components/table"

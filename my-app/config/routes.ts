@@ -31,10 +31,10 @@ export default [
     access: 'canAdmin',
     routes: [
       {
-        path: '/admin/sub-page',
-        name: 'sub-page',
+        path: '/admin/userManage',
+        name: 'userManage',
         icon: 'smile',
-        component: './Welcome',
+        component: './Admin/userManage',
       },
       {
         component: './404',
