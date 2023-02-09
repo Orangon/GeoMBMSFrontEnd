@@ -140,7 +140,25 @@ const Register: React.FC = () => {
                   }
                 ]}
               />
-
+              <ProFormText
+                name="email"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <LockOutlined className={styles.prefixIcon} />,
+                }}
+                placeholder='请输入邮箱'
+                rules={[
+                  {
+                    required: true,
+                    message: (
+                      <FormattedMessage
+                        id="pages.login.email.required"
+                        defaultMessage="请输入邮箱！"
+                      />
+                    ),
+                  },
+                ]}
+              />
             </>
           )}
           <div

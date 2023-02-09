@@ -64,6 +64,7 @@ declare namespace API {
     userAccount?: string;
     userPassword?: string;
     checkPassword?: string;
+    email?:string;
     type?: string;
   };
 
