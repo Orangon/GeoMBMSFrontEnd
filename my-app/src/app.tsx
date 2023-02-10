@@ -22,11 +22,39 @@ export const initialStateConfig = {
   loading: <PageLoading />,
 };
 import type { RequestConfig } from 'umi';
+import { message } from 'antd';
+
+
+
+/**
+ * 自定义响应拦截器，拦截所有后端发回的申请
+ * @param response
+ * @param options
+ * @returns 0：成功，返回数据
+ * 4010：未登录，回到登录界面
+ */
+const demoResponseInterceptors = async (response: Response, options: RequestConfig) => {
+  const res = await response.clone().json();
+
+
+  if (res.code === 0) {
+    return res.data;
+  }
+  else if (res.code === 4010) {
+    message.error(res.message);
+    history.push(loginPath);
+  } else {
+    message.error(res.description);
+  }
+  return res.data;
+};
 
 export const request: RequestConfig = {
   timeout: 100000,
-
+  responseInterceptors: [demoResponseInterceptors],
 };
+
+
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */

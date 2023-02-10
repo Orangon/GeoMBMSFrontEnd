@@ -14,6 +14,7 @@ declare namespace API {
   };
 
   type LoginResult = {
+    data: any;
     status?: string;
     type?: string;
     currentAuthority?: string;
@@ -68,6 +69,16 @@ declare namespace API {
     type?: string;
   };
 
+  /**
+   * 通用返回类
+   */
+  type BaseResponse<T> = {
+    code:number;
+    data:T;
+    message:string;
+    description:string;
+
+  }
   type ErrorResponse = {
     /** 业务约定的错误码 */
     errorCode: string;

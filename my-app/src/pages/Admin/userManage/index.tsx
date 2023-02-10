@@ -5,21 +5,6 @@ import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Avatar, Button, Dropdown, Space } from 'antd';
 import { useRef } from 'react';
 
-type GithubIssueItem = {
-  url: string;
-  id: number;
-  number: number;
-  title: string;
-  labels: {
-    name: string;
-    color: string;
-  }[];
-  state: string;
-  comments: number;
-  created_at: string;
-  updated_at: string;
-  closed_at?: string;
-};
 
 const columns: ProColumns<API.CurrentUser>[] = [
   {
@@ -98,31 +83,7 @@ const columns: ProColumns<API.CurrentUser>[] = [
     dataIndex: 'createTime',
     valueType: 'dateTime',
   },
-  // {
-  //   disable: true,
-  //   title: '状态',
-  //   dataIndex: 'state',
-  //   filters: true,
-  //   onFilter: true,
-  //   ellipsis: true,
-  //   valueType: 'select',
-  //   valueEnum: {
-  //     all: { text: '超长'.repeat(50) },
-  //     open: {
-  //       text: '未解决',
-  //       status: 'Error',
-  //     },
-  //     closed: {
-  //       text: '已解决',
-  //       status: 'Success',
-  //       disabled: true,
-  //     },
-  //     processing: {
-  //       text: '解决中',
-  //       status: 'Processing',
-  //     },
-  //   },
-  // },
+
   // {
   //   disable: true,
   //   title: '标签',
@@ -171,13 +132,10 @@ const columns: ProColumns<API.CurrentUser>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+
         }}
       >
         编辑
-      </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
       </a>,
       <TableDropdown
         key="actionGroup"
