@@ -29,7 +29,7 @@ const LoginMessage: React.FC<{
 );
 
 const Login: React.FC = () => {
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  const [userLoginState, setUserLoginState] = useState<API.LoginResult>();
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
 
@@ -66,7 +66,7 @@ const Login: React.FC = () => {
       }
       // console.log(user);
       // 如果失败去设置用户错误信息
-      setUserLoginState(data);
+      // setUserLoginState(data);
     } catch (error) {
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
       message.error(defaultLoginFailureMessage);
     }
   };
-  const { status, type: loginType } = userLoginState;
+  // const { status, type: loginType } = userLoginState;
 
   return (
     <div className={styles.container}>
@@ -87,9 +87,6 @@ const Login: React.FC = () => {
           logo={<img alt="logo" src="/logo.svg" />}
           title="GeoMBMS"
           subTitle="地理空间分析模型库管理系统"
-          initialValues={{
-            autoLogin: true,
-          }}
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
           }}
@@ -101,11 +98,11 @@ const Login: React.FC = () => {
             />
           </Tabs>
 
-          {status === 'error' && loginType === 'account' && (
+          {/* {status === 'error' && loginType === 'account' && (
             <LoginMessage
               content='账号或密码错误(admin/ant.design)'
             />
-          )}
+          )} */}
           {type === 'account' && (
             <>
               <ProFormText
@@ -157,20 +154,12 @@ const Login: React.FC = () => {
           <div
             style={{
               marginBottom: 24,
+              float: 'right',
             }}
           >
-            <ProFormCheckbox noStyle name="autoLogin">
-              <FormattedMessage id="pages.login.rememberMe" defaultMessage="自动登录" />
-            </ProFormCheckbox>
-            <a
-              style={{
-                float: 'right',
-              }}
-            >
-              <Link to="/user/register">新用户注册 </Link>
-              <Divider type="vertical" />
-              <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
-            </a>
+          <Link to="/user/register">新用户注册 </Link>
+          <Divider type="vertical" />
+          <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
           </div>
         </LoginForm>
       </div>

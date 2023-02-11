@@ -50,6 +50,30 @@ export async function searchUser(options?: { [key: string]: any }) {
   });
 }
 
+/** 用户信息编辑接口 POST /api/user/edit */
+export async function userInfoEdit(body: number, options?: { [key: string]: any }) {
+  return request<API.BaseResponse<boolean>>('/api/user/edit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 用户逻辑删除接口 POST /api/user/delete */
+export async function userLogicalDelete(body: number, options?: { [key: string]: any }) {
+  return request<API.BaseResponse<boolean>>('/api/user/delete', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 此处后端没有提供注释 GET /api/notices */
 export async function getNotices(options?: { [key: string]: any }) {
   return request<API.NoticeIconList>('/api/notices', {

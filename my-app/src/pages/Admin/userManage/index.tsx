@@ -1,4 +1,4 @@
-import { searchUser } from '@/services/ant-design-pro/api';
+import { userLogicalDelete, searchUser, userInfoEdit } from '@/services/ant-design-pro/api';
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
@@ -132,19 +132,19 @@ const columns: ProColumns<API.CurrentUser>[] = [
       <a
         key="editable"
         onClick={() => {
-
+          userInfoEdit(record)
         }}
       >
         编辑
       </a>,
-      <TableDropdown
-        key="actionGroup"
-        onSelect={() => action?.reload()}
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
+      <a
+      key="delete"
+      onClick={() => {
+        userLogicalDelete(record.id)
+      }}
+    >
+      删除
+    </a>,
     ],
   },
 ];
@@ -199,7 +199,7 @@ export default () => {
         onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
-      headerTitle="高级表格"
+      headerTitle="用户信息"
       toolBarRender={() => [
         <Button key="button" icon={<PlusOutlined />} type="primary">
           新建

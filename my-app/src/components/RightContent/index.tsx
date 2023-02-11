@@ -26,20 +26,10 @@ const GlobalHeaderRight: React.FC = () => {
       <HeaderSearch
         className={`${styles.action} ${styles.search}`}
         placeholder="站内搜索"
-        defaultValue="umi ui"
-        options={[
-          { label: <a href="https://umijs.org/zh/guide/umi-ui.html">umi ui</a>, value: 'umi ui' },
-          {
+        defaultValue="DEM"
+        options={[          {
             label: <a href="next.ant.design">Ant Design</a>,
             value: 'Ant Design',
-          },
-          {
-            label: <a href="https://protable.ant.design/">Pro Table</a>,
-            value: 'Pro Table',
-          },
-          {
-            label: <a href="https://prolayout.ant.design/">Pro Layout</a>,
-            value: 'Pro Layout',
           },
         ]}
         // onSearch={value => {
@@ -52,7 +42,7 @@ const GlobalHeaderRight: React.FC = () => {
           window.open('https://pro.ant.design/docs/getting-started');
         }}
       >
-        <QuestionCircleOutlined />
+      <QuestionCircleOutlined />
       </span>
       <Avatar />
       <SelectLang className={styles.action} />
