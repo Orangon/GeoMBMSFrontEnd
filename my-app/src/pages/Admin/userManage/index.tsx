@@ -1,7 +1,8 @@
 import { userLogicalDelete, searchUser, userInfoEdit } from '@/services/ant-design-pro/api';
+import { API } from '@/services/ant-design-pro/typings';
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Avatar, Button, Dropdown, Space } from 'antd';
 import { useRef } from 'react';
 

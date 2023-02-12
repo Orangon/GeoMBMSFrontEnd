@@ -1,6 +1,8 @@
 // @ts-ignore
 /* eslint-disable */
 
+import { List } from "lodash";
+
 declare namespace API {
   type CurrentUser = {
     id: number;
@@ -77,8 +79,29 @@ declare namespace API {
     data:T;
     message:string;
     description:string;
-
   }
+
+  /**
+   * 模型列表
+   */
+  type Category = {
+    id:stirng;
+    name?:string;
+    description?:string;
+    allModelsrecursive?:List;
+    models?:API.Resource[];
+    categories?:API.Category[];
+  }
+
+  type Resource = {
+    // id
+    id: string;
+    // 资源名称
+    name?: string;
+    // 资源描述
+    description?: string;
+  };
+
   type ErrorResponse = {
     /** 业务约定的错误码 */
     errorCode: string;

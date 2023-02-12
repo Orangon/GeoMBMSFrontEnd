@@ -1,61 +1,53 @@
 import Footer from '@/components/Footer';
 import { register } from '@/services/ant-design-pro/api';
-import {
-  LockOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormText,
-} from '@ant-design/pro-components';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { FormattedMessage, history, Link, SelectLang } from 'umi';
+import { history, Link } from 'umi';
 import styles from './index.less';
-
 
 const Register: React.FC = () => {
   const [type, setType] = useState<string>('account');
-
   const handleSubmit = async (values: API.RegisterParams) => {
     try {
-      if(values.userPassword !== values.checkPassword){
-        message.error('两次输入密码不一致')
+      if (values.userPassword !== values.checkPassword) {
+        message.error('两次输入密码不一致');
         return;
       }
       // 注册
-      const res = await register({ ...values, type });
-      console.log(res)
+      const res = await register({
+        ...values,
+        type,
+      });
+      console.log(res);
       if (res) {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
         /** 此方法会跳转到 redirect 参数所在的位置 */
         if (!history) return;
         const { query } = history.location;
-        const { redirect } = query as { redirect: string };
+        const { redirect } = query as {
+          redirect: string;
+        };
         history.push(redirect || '/');
         return;
-      }
-      else{
-        throw new Error(res)
+      } else {
+        throw new Error(res);
       }
     } catch (error: any) {
       const defaultLoginFailureMessage = '注册失败，请重试！';
       message.error(error.message ?? defaultLoginFailureMessage);
     }
   };
-
   return (
     <div className={styles.container}>
-      <div className={styles.lang} data-lang>
-        {SelectLang && <SelectLang />}
-      </div>
       <div className={styles.content}>
         <LoginForm
           submitter={{
-            searchConfig:{
-              submitText:"注册"
-            }
+            searchConfig: {
+              submitText: '注册',
+            },
           }}
           logo={<img alt="logo" src="/logo.svg" />}
           title="GeoMBMS"
@@ -68,10 +60,7 @@ const Register: React.FC = () => {
           }}
         >
           <Tabs activeKey={type} onChange={setType}>
-            <Tabs.TabPane
-              key="account"
-              tab='注册'
-            />
+            <Tabs.TabPane key="account" tab="注册" />
           </Tabs>
 
           {type === 'account' && (
@@ -82,16 +71,11 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='请输入您的账号'
+                placeholder="请输入您的账号"
                 rules={[
                   {
                     required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.username.required"
-                        defaultMessage="请输入账号!"
-                      />
-                    ),
+                    message: '用户名是必填项！',
                   },
                 ]}
               />
@@ -101,22 +85,17 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='请输入密码'
+                placeholder="请输入密码"
                 rules={[
                   {
                     required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.password.required"
-                        defaultMessage="请输入密码！"
-                      />
-                    ),
+                    message: '密码是必填项！',
                   },
                   {
-                    min:8,
-                    type:'string',
-                    message:'长度不能小于8'
-                  }
+                    min: 8,
+                    type: 'string',
+                    message: '长度不能小于8',
+                  },
                 ]}
               />
               <ProFormText.Password
@@ -125,22 +104,17 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='请再次输入密码'
+                placeholder="请再次输入密码"
                 rules={[
                   {
                     required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.password.required"
-                        defaultMessage="请再次输入密码！"
-                      />
-                    ),
+                    message: '密码是必填项！',
                   },
                   {
-                    min:8,
-                    type:'string',
-                    message:'长度不能小于8'
-                  }
+                    min: 8,
+                    type: 'string',
+                    message: '长度不能小于8',
+                  },
                 ]}
               />
               <ProFormText
@@ -149,16 +123,11 @@ const Register: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='请输入邮箱'
+                placeholder="请输入邮箱"
                 rules={[
                   {
                     required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.email.required"
-                        defaultMessage="请输入邮箱！"
-                      />
-                    ),
+                    message: '请输入邮箱！',
                   },
                 ]}
               />
@@ -167,7 +136,7 @@ const Register: React.FC = () => {
           <div
             style={{
               marginBottom: 24,
-              float:'right'
+              float: 'right',
             }}
           >
             <Link to="/user/login">已有账号？去登录</Link>
@@ -178,5 +147,4 @@ const Register: React.FC = () => {
     </div>
   );
 };
-
 export default Register;

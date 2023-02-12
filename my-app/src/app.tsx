@@ -35,9 +35,7 @@ import { message } from 'antd';
  */
 const demoResponseInterceptors = async (response: Response, options: RequestConfig) => {
   const res = await response.clone().json();
-
-
-  if (res.code === 0) {
+  if (res.code === 0||res.code === 2000) {
     return res.data;
   }
   else if (res.code === 4010) {
@@ -48,10 +46,15 @@ const demoResponseInterceptors = async (response: Response, options: RequestConf
   }
   return res.data;
 };
-
+/**
+ * 设置超时时长
+ * 响应拦截器
+ * 前缀，如果是开发环境，就改为mbms.cn
+ */
 export const request: RequestConfig = {
-  timeout: 100000,
+  timeout: 10000,
   responseInterceptors: [demoResponseInterceptors],
+  prefix:process.env.NODE_ENV === 'production' ? 'http://mbms.cn' : undefined,
 };
 
 

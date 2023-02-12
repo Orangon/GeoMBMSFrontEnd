@@ -1,6 +1,7 @@
 // @ts-ignore
 /* eslint-disable */
 import { request } from 'umi';
+import { API } from './typings';
 
 /** 获取当前的用户 GET /api/user/current */
 export async function currentUser(options?: { [key: string]: any }) {
@@ -70,6 +71,14 @@ export async function userLogicalDelete(body: number, options?: { [key: string]:
       'Content-Type': 'application/json',
     },
     data: body,
+    ...(options || {}),
+  });
+}
+
+/** 查询模型接口 GET /mbms/category */
+export async function searchCategoryTree(options?: { [key: string]: any }) {
+  return request<API.Category>('/mbms/category', {
+    method: 'GET',
     ...(options || {}),
   });
 }
