@@ -119,6 +119,12 @@ declare namespace GeoMBMS {
         //执行环境、参数
         env: Array<ParamGroup | Param>
     }
+
+    type RunResult = {
+      status: 'wait' | 'process' | 'finish' | 'error',
+      success?: boolean,
+      message?: any[]
+    }
   }
   type ModalProps = {
       title?: any;
@@ -186,6 +192,7 @@ type TaskType = {
         }
     }
 }
+
 
   /**
    * 其他

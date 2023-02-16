@@ -1,0 +1,123 @@
+@import '~antd/es/style/variable.less';
+.validForm {
+    :global {
+        .btnItem {
+            // width: 50%;
+            display: inline-block;
+
+            .ant-btn {
+                width: 150px;
+                vertical-align: top;
+            }
+        }
+
+        .btnItem + .btnItem {
+            margin-left: 30px;
+        }
+
+        .ant-modal-body {
+            padding-left: 50px;
+        }
+
+        .ant-modal-footer {
+            padding-bottom: 20px;
+        }
+
+        // .ant-btn {
+        //     width: 120px;
+        // }
+    }
+}
+
+.detailModal {
+    p {
+        width: 60%;
+        margin: 0 auto;
+        line-height: 2.5;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    :global {
+        .ant-modal-body {
+            padding-bottom: 24px;
+        }
+    }
+}
+
+.primaryItem {
+    border-bottom: 1px dashed #dddddd;
+    padding-bottom: 15px;
+    text-align: center;
+
+    :global {
+        .ant-upload-list-text {
+            overflow: hidden;
+        }
+        .ant-upload-list-item{
+            margin-top: 0px;
+            height: 32px;
+        }
+    }
+}
+
+.customItem {
+    text-align: center;
+
+    :global {
+        .anticon-file-text {
+            background-color: @primary-color;
+        }
+
+        .ant-select-selection {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        // .ant-select-selection-selected-value {
+        //     display: block;
+        //     float: none;
+        //     text-align: left;
+        //     width: 100px;
+        //     overflow: hidden;
+        //     white-space: nowrap;
+        //     text-overflow: ellipsis;
+        // }
+    }
+}
+
+.row {
+    margin-bottom: 10px;
+
+    :global {
+        .anticon-file-text {
+            font-size: 32px;
+            padding: 8px;
+        }
+
+        .ant-upload {
+            vertical-align: top;
+        }
+
+        .ant-upload-list{
+            .ant-upload-list-item-name{
+                text-align: left;
+            }
+        }
+
+        .ant-btn {
+            // margin-top: 8px;
+            margin-left: 16px;
+        }
+
+        .ant-select {
+            margin-left: 16px;
+            width: 150px;
+            float: right;
+            margin-top: 8px;
+        }
+    }
+}

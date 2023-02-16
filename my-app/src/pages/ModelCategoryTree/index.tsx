@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Drawer, Input,Popover, Space, Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
+import type { DataNode } from 'antd/es/tree';
 import styles from './index.less';
 import { getModelCategoryTree } from '@/services/ant-design-pro/api';
 import { GeoMBMS } from '@/services/ant-design-pro/typings';

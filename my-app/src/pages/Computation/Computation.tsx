@@ -4,8 +4,8 @@ import { Modal, Space, Radio } from 'antd';
 import { InfoCircleOutlined, CodeOutlined } from '@ant-design/icons';
 // import CommonIconFont from '@/components/CommonIconFont';
 
-import ModelInfo_Basic from './ModelInfo/basic';
-// import ModelInfo_Run from './ModeInfo/Run';
+import ModelInfo_Basic from './ModelInfo/Basic';
+import ModelInfo_Run from './ModelInfo/Run';
 
 import { fetchModelMetadata } from '@/services/ant-design-pro/api';
 
@@ -62,9 +62,9 @@ const Model = ({ model, task }: { model?: GeoMBMS.Resource; task?: GeoMBMS.Task 
             </div>
             <div className={styles.container}>
                 {active === 'basic' && <ModelInfo_Basic model={metadata} />}
-                {/* {active === 'run' && (
+                {active === 'run' && (
                     <ModelInfo_Run model={modelObj} metadata={metadata} task={task} />
-                )} */}
+                )}
             </div>
         </div>
     );

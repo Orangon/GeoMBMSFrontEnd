@@ -1,0 +1,63 @@
+@import '~antd/es/style/variable.less';
+
+.wrapper {
+    &::after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+
+    .history {
+        float: left;
+        margin-right: 10px;
+
+        button {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .path {
+        float: left;
+        width: calc(100% - 70px - 220px);
+        height: 32px;
+        padding: 5px;
+        padding-left: 10px;
+        overflow: hidden;
+        border: 1px solid @primary-color;
+
+        .scrollTool {
+            float: right;
+            margin-top: -28px;
+            padding-left: 5px;
+            border-left: 1px solid @primary-color;
+
+            button {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        :global {
+            .ant-breadcrumb {
+                display: flex;
+                overflow-x: auto;
+                white-space: nowrap;
+                a {
+                    color: @primary-color;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 0 !important;
+                    height: 0 !important;
+                }
+            }
+        }
+    }
+
+    .find {
+        display: inline-block;
+        width: 207px;
+        margin-left: 10px;
+    }
+}
