@@ -23,6 +23,7 @@ export const initialStateConfig = {
 };
 import type { RequestConfig } from 'umi';
 import { message } from 'antd';
+import { GeoMBMS } from './services/ant-design-pro/typings';
 
 
 
@@ -36,6 +37,7 @@ import { message } from 'antd';
 const demoResponseInterceptors = async (response: Response, options: RequestConfig) => {
   const res = await response.clone().json();
   if (res.code === 0||res.code === 2000) {
+    // console.log(res.data)
     return res.data;
   }
   else if (res.code === 4010) {
@@ -63,9 +65,9 @@ export const request: RequestConfig = {
  * */
 export async function getInitialState(): Promise<{
   settings?: Partial<LayoutSettings>;
-  currentUser?: API.CurrentUser;
+  currentUser?: GeoMBMS.CurrentUser;
   loading?: boolean;
-  fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
+  fetchUserInfo?: () => Promise<GeoMBMS.CurrentUser | undefined>;
 }> {
   const fetchUserInfo = async () => {
     try {

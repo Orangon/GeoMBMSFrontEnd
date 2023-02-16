@@ -1,0 +1,25 @@
+@import '~antd/es/style/variable.less';
+.wrapper {
+    ul{
+        padding: 0;
+        padding-left: 15px;
+        margin: 0;
+        list-style: auto;
+    }
+
+    :global{
+        .ant-collapse-expand-icon,
+        .ant-collapse-header-text{
+            color:@primary-color;
+        }
+        .ant-collapse-content {
+            & > .ant-collapse-content-box{
+                padding: 0;
+
+                .ant-descriptions-bordered .ant-descriptions-view{
+                    border: 0;
+                }
+            }
+        }
+    }
+}

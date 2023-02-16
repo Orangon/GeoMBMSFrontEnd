@@ -1,9 +1,9 @@
 import React from 'react';
-import CategoryTree from './CategoryTree';
+import ModelGrid from './Map/ModelGrid';
 
 const Welcome: React.FC = () => {
   return (
-      <CategoryTree />
+      <ModelGrid />
   );
 };
 

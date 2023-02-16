@@ -3,7 +3,10 @@
 
 import { List } from "lodash";
 
-declare namespace API {
+declare namespace GeoMBMS {
+  /**
+   * 用户注册/登录
+   */
   type CurrentUser = {
     id: number;
     username?: string;
@@ -24,11 +27,28 @@ declare namespace API {
 
   type RegisterResult = number;
 
+  type LoginParams = {
+    userAccount?: string;
+    userPassword?: string;
+    autoLogin?: boolean;
+    type?: string;
+  };
+
+  type RegisterParams = {
+    userAccount?: string;
+    userPassword?: string;
+    checkPassword?: string;
+    email?:string;
+    type?: string;
+  };
+
   type PageParams = {
     current?: number;
     pageSize?: number;
   };
-
+  /**
+   * 建立规则
+   */
   type RuleListItem = {
     key?: number;
     disabled?: boolean;
@@ -56,25 +76,11 @@ declare namespace API {
     status?: string;
   };
 
-  type LoginParams = {
-    userAccount?: string;
-    userPassword?: string;
-    autoLogin?: boolean;
-    type?: string;
-  };
-
-  type RegisterParams = {
-    userAccount?: string;
-    userPassword?: string;
-    checkPassword?: string;
-    email?:string;
-    type?: string;
-  };
-
   /**
    * 通用返回类
    */
   type BaseResponse<T> = {
+    categories: any;
     code:number;
     data:T;
     message:string;
@@ -84,13 +90,13 @@ declare namespace API {
   /**
    * 模型列表
    */
-  type Category = {
+  type ModelCategory = {
     id:stirng;
     name?:string;
     description?:string;
     allModelsrecursive?:List;
-    models?:API.Resource[];
-    categories?:API.Category[];
+    models?:GeoMBMS.Resource[];
+    categories?:GeoMBMS.ModelCategory[];
   }
 
   type Resource = {
@@ -102,6 +108,88 @@ declare namespace API {
     description?: string;
   };
 
+  /**
+   * 模型任务
+   */
+  namespace Model {
+    //模型描述文件
+    type Metadata = {
+        //描述元数据
+        meta: any,
+        //执行环境、参数
+        env: Array<ParamGroup | Param>
+    }
+  }
+  type ModalProps = {
+      title?: any;
+      show: boolean;
+      width?: number | string;
+      bodyStyle?: any | null;
+      onCancel?: (e: any, reload?: boolean) => void;
+  };
+  type Task = {
+    id?: string;
+    //名称
+    name?: string;
+    //详细参数
+    detail?: any;
+    //参数哈希值
+    paramHash?: string;
+    //状态
+    status?:
+    'READY'//已准备好
+    | 'RUNNING'//运行中
+    | 'FINISHED' //正常运行结束
+    | 'FAILED' //运行失败
+    | 'CANCELLING' //正在取消
+    | 'CANCELLED' //已取消
+    ;
+    //状态消息
+    message?: string;
+    // 进度
+    percentage?: number;
+    //任务关联数据编号
+    dataId?: string;
+    dataUrl?: string;
+    //状态类型
+    type?: OneSIS.TaskType;
+    typeName?: string;
+    //创建者
+    createdBy?: string;
+    //修改者
+    updateBy?: string;
+    //创建时间
+    create?: date;
+    //修改时间
+    update?: date;
+    _links?: {
+        self?: {
+            href?: string;
+        },
+        [key: string]: {
+            href?: string;
+        }
+    }
+}
+
+type TaskType = {
+    id?: string;
+    code?: string;
+    name?: string;
+    description?: string;
+    _links?: {
+        self?: {
+            href?: string;
+        },
+        [key: string]: {
+            href?: string;
+        }
+    }
+}
+
+  /**
+   * 其他
+   */
   type ErrorResponse = {
     /** 业务约定的错误码 */
     errorCode: string;
