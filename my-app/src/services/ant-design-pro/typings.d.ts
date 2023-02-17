@@ -19,10 +19,16 @@ declare namespace GeoMBMS {
   };
 
   type LoginResult = {
-    data: any;
-    status?: string;
-    type?: string;
-    currentAuthority?: string;
+    id: number;
+    username?: string;
+    userAccount?:string;
+    avatarUrl?: string;
+    email?: string;
+    userStatus?: number;
+    userRole?: number;
+    createTime?:Date;
+    // type?: string;
+    // currentAuthority?: string;
   };
 
   type RegisterResult = number;
@@ -30,8 +36,8 @@ declare namespace GeoMBMS {
   type LoginParams = {
     userAccount?: string;
     userPassword?: string;
-    autoLogin?: boolean;
-    type?: string;
+    // autoLogin?: boolean;
+    // type?: string;
   };
 
   type RegisterParams = {
@@ -39,7 +45,7 @@ declare namespace GeoMBMS {
     userPassword?: string;
     checkPassword?: string;
     email?:string;
-    type?: string;
+    // type?: string;
   };
 
   type PageParams = {

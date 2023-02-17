@@ -63,7 +63,7 @@ export default ({
                     [styles.border]: current === 3,
                 })}
             >
-                {current === 0 && (
+                {/* {current === 0 && (
                     <ModelParameters
                         params={params}
                         metadata={metadata}
@@ -73,7 +73,7 @@ export default ({
                             setCurrent(1);
                         }}
                     ></ModelParameters>
-                )}
+                )} */}
                 {/* {current === 1 && (
                     <ModelTask
                         model={model}
