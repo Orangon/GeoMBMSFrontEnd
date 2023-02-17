@@ -8,10 +8,18 @@
  */
 export default {
   dev: {
-    // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
+    // localhost:8000/api/** -> https://localhost:8080/api/**
     '/api/': {
       // 要代理的地址
       target: 'http://localhost:8080',
+      // 配置了这个可以从 http 代理到 https
+      // 依赖 origin 的功能可能需要这个，比如 cookie
+      changeOrigin: true,
+    },
+    '/user/': {
+      // dev:wucl 分支在本地使用 Mock 数据
+      // localhost:8000/user/** -> https://localhost:8080/user/**
+      target: 'http://127.0.0.1:4523/m1/1225142-0-default',
       // 配置了这个可以从 http 代理到 https
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
