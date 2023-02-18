@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { history, Link, useModel } from 'umi';
 import styles from './index.less';
 import { Divider } from 'antd';
+import { GeoMBMS } from '@/services/ant-design-pro/typings';
 const Login: React.FC = () => {
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
@@ -19,7 +20,7 @@ const Login: React.FC = () => {
       }));
     }
   };
-  const handleSubmit = async (values: API.LoginParams) => {
+  const handleSubmit = async (values: GeoMBMS.LoginParams) => {
     try {
       // 登录
       const data = await login({
@@ -53,7 +54,7 @@ const Login: React.FC = () => {
           title="GeoMBMS"
           subTitle="地理空间分析模型库管理系统"
           onFinish={async (values) => {
-            await handleSubmit(values as API.LoginParams);
+            await handleSubmit(values as GeoMBMS.LoginParams);
           }}
         >
           <Tabs activeKey={type} onChange={setType}>

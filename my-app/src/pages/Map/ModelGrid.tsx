@@ -21,7 +21,7 @@ const ModelGrid = () => {
                 </Col>
                 <Col span={16}>
                     {/* 模型详情 */}
-                    {/* {!isNil(selectedModel) && (
+                    {!isNil(selectedModel) && (
                         <ModelModal
                             show={!isNil(selectedModel)}
                             model={selectedModel}
@@ -29,7 +29,7 @@ const ModelGrid = () => {
                                 setSelectedModel(undefined);
                             }}
                         />
-                    )} */}
+                    )}
                 </Col>
             </Row>
         </>

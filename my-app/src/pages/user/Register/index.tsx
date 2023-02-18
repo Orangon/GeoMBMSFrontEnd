@@ -6,10 +6,11 @@ import { message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { history, Link } from 'umi';
 import styles from './index.less';
+import { GeoMBMS } from '@/services/ant-design-pro/typings';
 
 const Register: React.FC = () => {
   const [type, setType] = useState<string>('account');
-  const handleSubmit = async (values: API.RegisterParams) => {
+  const handleSubmit = async (values: GeoMBMS.RegisterParams) => {
     try {
       if (values.userPassword !== values.checkPassword) {
         message.error('两次输入密码不一致');
@@ -56,7 +57,7 @@ const Register: React.FC = () => {
             autoLogin: true,
           }}
           onFinish={async (values) => {
-            await handleSubmit(values as API.RegisterParams);
+            await handleSubmit(values as GeoMBMS.RegisterParams);
           }}
         >
           <Tabs activeKey={type} onChange={setType}>
