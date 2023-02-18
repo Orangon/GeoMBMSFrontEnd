@@ -5,7 +5,7 @@ import { GeoMBMS } from './typings';
 
 /** 获取当前的用户 GET /api/user/current */
 export async function currentUser(options?: { [key: string]: any }) {
-  return request<GeoMBMS.BaseResponse<GeoMBMS.CurrentUser>>('/user/current', {
+  return request<GeoMBMS.BaseResponse<GeoMBMS.CurrentUser>>('/api/user/current', {
     method: 'GET',
     ...(options || {}),
   });
@@ -21,7 +21,7 @@ export async function outLogin(options?: { [key: string]: any }) {
 
 /** 用户登录 POST /api/user/login */
 export async function login(body: GeoMBMS.LoginParams, options?: { [key: string]: any }) {
-  return request<GeoMBMS.BaseResponse<GeoMBMS.LoginResult>>('/user/login', {
+  return request<GeoMBMS.BaseResponse<GeoMBMS.LoginResult>>('/api/user/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export async function login(body: GeoMBMS.LoginParams, options?: { [key: string]
 
 /** 用户注册 POST /api/user/register */
 export async function register(body: GeoMBMS.RegisterParams, options?: { [key: string]: any }) {
-  return request<GeoMBMS.BaseResponse<GeoMBMS.RegisterResult>>('/user/register', {
+  return request<GeoMBMS.BaseResponse<GeoMBMS.RegisterResult>>('/api/user/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
