@@ -36,7 +36,7 @@ import { GeoMBMS } from './services/ant-design-pro/typings';
  */
 const demoResponseInterceptors = async (response: Response, options: RequestConfig) => {
   const res = await response.clone().json();
-  if (res.code === 0||res.code === 2000) {
+  if (res.code === 200||res.code === 2000) {
     // console.log(res.data)
     return res.data;
   }
