@@ -62,9 +62,9 @@ const Model = ({ model, task }: { model?: GeoMBMS.Resource; task?: GeoMBMS.Task 
             </div>
             <div className={styles.container}>
                 {active === 'basic' && <ModelInfo_Basic model={metadata} />}
-                {/* {active === 'run' && (
+                {active === 'run' && (
                     <ModelInfo_Run model={modelObj} metadata={metadata} task={task} />
-                )} */}
+                )}
             </div>
         </div>
     );

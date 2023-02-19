@@ -276,7 +276,7 @@ const Toolbar = ({ onTriggerEvent }: { onTriggerEvent: (event: string) => void }
             <UploadModal
                 show={showWebDavUploadModal}
                 catalog={get(last(fullPath), 'filename')}
-                onCancel={(_, reload: boolean | undefined) => {
+                onCancel={(_: any, reload: boolean | undefined) => {
                     setShowWebDavUploadModal(false);
                     if (reload) {
                         onTriggerEvent?.('reload');
