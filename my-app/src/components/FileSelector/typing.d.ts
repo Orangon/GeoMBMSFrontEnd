@@ -21,4 +21,12 @@ declare namespace OneSIS {
                 | 'Table'
         }
     }
+
+    type ModalProps = {
+        title?: any;
+        show: boolean;
+        width?: number | string;
+        bodyStyle?: any | null;
+        onCancel?: (e: any, reload?: boolean) => void;
+    };
 }

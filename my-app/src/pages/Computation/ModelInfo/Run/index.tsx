@@ -6,6 +6,9 @@ import ModelParameters from './Parameters';
 import ModelMonitor from './Monitor';
 import ModelTask from '../components/task';
 import { ModelSuccess, ModelFaild } from '../components/result';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 import classNames from 'classnames';
 import styles from './index.less';
 import { GeoMBMS } from '@/services/ant-design-pro/typings';
@@ -74,7 +77,7 @@ export default ({
                         }}
                     ></ModelParameters>
                 )}
-                {/* {current === 1 && (
+                {current === 1 && (
                     <ModelTask
                         model={model}
                         metadata={metadata}
@@ -124,7 +127,7 @@ export default ({
                             />
                         )}
                     </>
-                )} */}
+                )}
             </div>
         </div>
     );

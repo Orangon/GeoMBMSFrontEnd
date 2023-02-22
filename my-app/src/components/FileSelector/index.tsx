@@ -137,7 +137,7 @@ const FileSelectorModal: React.FC<
         <Modal
             title={title ?? '文件夹、文件选择'}
             className={styles.modalWrapper}
-            visible={show}
+            open={show}
             width={width ?? 1280}
             destroyOnClose={true}
             bodyStyle={bodyStyle ?? { padding: 10 }}

@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { useUpdateEffect } from 'ahooks';
 import { Row, Col, Input, Select, Button } from 'antd';
 import { FolderOpenOutlined } from '@ant-design/icons';
-import { useRecoilValue } from 'recoil';
-import { layersState } from '@/pages/MapScene/.Recoil/atom';
 import { isEmpty } from 'lodash';
 import { extName } from '@/utils/size';
 import { FileSelectorModal } from '@/components/FileSelector';
+import Title from 'antd/lib/skeleton/Title';
 
 const DataSelector = ({
     value,
@@ -21,8 +20,7 @@ const DataSelector = ({
     accept?: string[];
     onChange: (value: any) => void;
 }) => {
-    const layers: any[] = useRecoilValue<any[]>(layersState);
-    const [acitve, setActive] = useState<string>(isEmpty(layers) ? 'server' : 'mapLayer');
+    const [acitve, setActive] = useState<string>(isEmpty(2) ? 'server' : 'mapLayer');
     const [curValue, setCurValue] = useState<any>(value);
     const [showFileSelectorModal, setShowFileSelectorModal] = useState<boolean>(false);
 
@@ -59,15 +57,7 @@ const DataSelector = ({
                         </Input.Group>
                     )}
                     {acitve === 'mapLayer' && (
-                        <Select
-                            options={layers.map((l: any) => ({
-                                label: l?.aliasName ?? l?.name ?? '-',
-                                value: l.id,
-                            }))}
-                            style={{ width: '100%' }}
-                            value={curValue}
-                            onChange={setCurValue}
-                        ></Select>
+                        <Title>none</Title>
                     )}
                 </Col>
             </Row>

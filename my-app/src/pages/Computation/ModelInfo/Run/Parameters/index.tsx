@@ -223,12 +223,12 @@ const ModelParameters = ({
                 </div>
             </SchemaField>
             <FormButtonGroup align="center">
-                {/* <Submit onSubmit={doSubmit}>
+                <Submit onSubmit={doSubmit}>
                     <Space>
                         下一步
                         <ArrowRightOutlined />
                     </Space>
-                </Submit> */}
+                </Submit>
             </FormButtonGroup>
         </Form>
     );

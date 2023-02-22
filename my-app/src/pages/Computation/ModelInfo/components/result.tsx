@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 
 const { Paragraph, Text } = Typography;
-const ModelSuccess = ({ result }: { result: OneSIS.Model.RunResult }) => (
+const ModelSuccess = ({ result }: { result: GeoMBMS.Model.RunResult }) => (
     <Result
         status="success"
         title="模型执行完毕!"
@@ -26,7 +26,7 @@ const ModelFaild = ({
     result,
     onRunAgain,
 }: {
-    result: OneSIS.Model.RunResult;
+    result: GeoMBMS.Model.RunResult;
     onRunAgain?: () => void;
 }) => (
     <Result

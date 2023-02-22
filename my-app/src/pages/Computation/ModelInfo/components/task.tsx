@@ -16,10 +16,10 @@ const ModelTask = ({
     onSuccess,
     onBack,
 }: {
-    model?: OneSIS.Resource;
+    model?: GeoMBMS.Resource;
     metadata?: GeoMBMS.Model.Metadata;
     params?: any;
-    onSuccess?: (task: OneSIS.Task) => void;
+    onSuccess?: (task: GeoMBMS.Task) => void;
     onBack?: () => void;
 }) => {
     const [formRef] = ProForm.useForm();
@@ -35,7 +35,7 @@ const ModelTask = ({
 
     const doSubmit = async (form: Record<string, any>) => {
         try {
-            let task: OneSIS.Task = await createTask({
+            let task: GeoMBMS.Task = await createTask({
                 ...form,
                 dataId: model?.id,
                 dataUrl: model?.url,

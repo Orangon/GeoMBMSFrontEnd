@@ -315,7 +315,7 @@ const CreateFolder = ({
     return (
         <Modal
             title={'创建文件夹'}
-            visible={show}
+            open={show}
             width={width ?? 1280}
             destroyOnClose={true}
             bodyStyle={bodyStyle ?? { padding: '5px 20px' }}

@@ -54,6 +54,7 @@
     "@formily/core": "^2.2.18",
     "@formily/react": "^2.2.18",
     "@types/smoothscroll-polyfill": "^0.3.1",
+    "@types/urijs": "^1.19.19",
     "@umijs/preset-ui": "^2.2.9",
     "@umijs/route-utils": "^2.0.0",
     "antd": "^4.24.8",

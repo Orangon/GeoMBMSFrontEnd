@@ -68,7 +68,7 @@ const UploadModal: React.FC<OneSIS.ModalProps & { catalog: any }> = (props) => {
                     {title ?? '上传'}
                 </>
             }
-            visible={show}
+            open={show}
             onCancel={() => {
                 onCancel?.('');
             }}

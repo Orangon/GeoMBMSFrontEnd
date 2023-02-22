@@ -31,13 +31,12 @@ import { GeoMBMS } from './services/ant-design-pro/typings';
  * 自定义响应拦截器，拦截所有后端发回的申请
  * @param response
  * @param options
- * @returns 0：成功，返回数据
- * 4010：未登录，回到登录界面
+ * @returns
  */
 const demoResponseInterceptors = async (response: Response, options: RequestConfig) => {
   const res = await response.clone().json();
   if (res.code === 200||res.code === 2000) {
-    // console.log(res.data)
+    console.log(res.data)
     return res.data;
   }
   else if (res.code === 4010) {

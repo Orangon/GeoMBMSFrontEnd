@@ -22,8 +22,8 @@ const ModelMonitor = ({
 }: {
     task?: OneSIS.Task;
     params: any;
-    onStop?: (result: OneSIS.Model.RunResult) => void;
-    onSuccess?: (result: OneSIS.Model.RunResult) => void;
+    onStop?: (result: GeoMBMS.Model.RunResult) => void;
+    onSuccess?: (result: GeoMBMS.Model.RunResult) => void;
 }) => {
     const { message } = useSubscription([`task/#`], {
         qos: 0,

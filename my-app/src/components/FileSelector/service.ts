@@ -1,4 +1,4 @@
-import { createClient, } from 'webdav/web';
+import { createClient, } from 'webdav';
 import { isEmpty, compact, endsWith, } from 'lodash';
 import { request } from 'umi';
 import { extName } from '@/utils/size';

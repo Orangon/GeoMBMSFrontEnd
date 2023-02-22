@@ -79,3 +79,99 @@ declare interface Window {
       configuration?: any;
   }
 }
+declare namespace OneSIS {
+
+  type ResponseType<T> = {
+      code?: number | string;
+      data?: T;
+      message?: string;
+      success: boolean;
+  };
+
+  type PagedResponseType<T> = {
+      code?: number | string;
+      data?: {
+          rows?: T;
+          total?: number;
+      }
+      message?: string;
+      success?: boolean;
+  };
+
+  type HalPagedResponseType<T> = {
+      page: {
+          number?: number;
+          size?: number;
+          totalElements?: number;
+          totalPages?: number;
+      };
+      _embedded: T;
+      _links: {
+          self?: {
+              href?: string;
+          },
+          [key: string]: {
+              href?: string;
+          }
+      }
+  }
+
+  type MapPluginDataType = {
+      show: boolean;
+      position?: string;
+      layers?: any[];
+  }
+
+  type MapDataType = {
+      id: string;
+      zoomControl?: boolean;
+      layers: any[];
+      fullScreen?: MapPluginDataType;
+      measure?: MapPluginDataType;
+      coordinates?: MapPluginDataType;
+      easyPrint?: MapPluginDataType;
+      baseMaps?: MapPluginDataType;
+  }
+
+  type CRSObject = {
+      bounds: number[];
+  }
+
+  type InitialData = {
+      currentUser?: OneSIS.User;
+      authority?: OneSIS.Authority[];
+      loading?: boolean;
+      fetchUserInfo?: () => Promise<OneSIS.User | undefined>;
+      fetchAuthority?: () => Promise<OneSIS.Authority[] | undefined>;
+  }
+
+  type Menu = {
+      // id
+      id?: string;
+      // 名称
+      name?: string;
+      // 权限编码：前端用于限权
+      code?: string;
+      // 上级权限ID
+      parentId?: string;
+      // 所属系统ID
+      systemId?: string;
+      // 是否启用
+      enabled?: boolean;
+      // 权限类型,可用值:BUTTON,MENU,MODULE
+      type?: 'BUTTON' | 'MENU' | 'MODULE'
+      // 路径
+      url?: string;
+      // 图标
+      icon?: string;
+      // 创建时间
+      createTime?: date;
+      // 排序：小值优先
+      sort?: number;
+      // 子节点
+      children?: OneSIS.Menu[]
+  };
+
+  type Authority = {} & Menu
+
+}
